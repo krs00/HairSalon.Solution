@@ -14,7 +14,7 @@
 <h4>Email: @Model.Email</h4>
 <br>
 <br> 
-@* @if (@Model.Clients.Count == 0)
+@if (@Model.Clients.Count == 0)
 {
   <h3>@Model.Name has no clients!</h3>
   <br>
@@ -23,12 +23,17 @@
 }
 else 
 {
-  <h3>@Model.Name's clients:</h3>
-  <h4><li>@Html.ActionLink($"{Client.Name}", "Details", "Client", new { id = Client.ClientId })</li></h4>
+   <h3>Clients:</h3>
+  <ul>
+    @foreach (Client client in Model.Clients)
+    {
+      <li>@Html.ActionLink($"{client.StylistId}", "Details", "Items", new { id = client.ClientId })</li>
+    }
+  </ul>
   <br>
   <br>
   <br> 
-} *@
+}
 
 <h3>@Html.ActionLink($"Edit {Model.Name}", "Edit", new { id = Model.StylistId })</h3>
 <br>
