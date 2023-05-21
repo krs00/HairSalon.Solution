@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using HairSalon.Models;
@@ -15,12 +16,30 @@ namespace HairSalon.Controllers
       _db = db;
     }
 
-      public ActionResult Index()
+    public ActionResult Index()
     {
       List<Client> model = _db.Client
-                            .Include(client => client.StylistId) 
+                            .Include(client => client.StylistId)
                             .ToList();
       return View(model);
+    }
+
+    public ActionResult Create()
+    {
+      ViewBag.StylistId = new SelectList(_db.Stylist, "StylistId", "Name");
+      return View(); 
+    }
+
+    [HttpPost]
+    public ActionResult Create(Client client)
+    {
+      if (client.StylistId == 0)
+      {
+        return RedirectToAction("Create");
+      }
+      _db.Client.Add(client);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
     }
 
 
