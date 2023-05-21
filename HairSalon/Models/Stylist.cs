@@ -10,6 +10,6 @@ namespace HairSalon.Models
     public string Specialty { get; set; }
     public string Email { get; set; }
     public string PhoneNumber { get; set; }
-    public List <Client> Clients { get; set; }
+    public List <Client> Clients { get; set; } // NAVIGATION PROPERTY
   }
 }
