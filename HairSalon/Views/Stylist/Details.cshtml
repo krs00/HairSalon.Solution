@@ -6,3 +6,18 @@
 @using HairSalon.Models
 
 <h2>🌺Stylist @Model.Name's Info Page🌺</h2>
+<br>
+<br>
+@if (@Model.Clients.Count == 0)
+{
+  <h3>@Model.Name has no clients!</h3> 
+}
+@* else
+{
+  <h3>@Model.Name's clients:</h3>
+  <h4><li>@Html.ActionLink($"{client.Name}", "Details", "Client", new { id = client.ClientId })</li></h4> 
+} *@ 
+
+<h3>@Html.ActionLink($"Edit {Model.Name}", "Edit", new { id = Model.StylistId })</h3>
+<h3>@Html.ActionLink($"Delete {Model.Name} :(", "Delete", new { id = Model.StylistId })</h3>
+<h3>@Html.ActionLink("Back to list", "Index")</h3>
