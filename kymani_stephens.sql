@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.22, for macos10.15 (x86_64)
 --
--- Host: localhost    Database: HairSalon
+-- Host: localhost    Database: kymani_stephens
 -- ------------------------------------------------------
 -- Server version	8.0.27
 
@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `Client`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Client` (
-  `ClientId` int NOT NULL,
+  `ClientId` int NOT NULL AUTO_INCREMENT,
   `Name` varchar(45) DEFAULT NULL,
   `Age` int DEFAULT NULL,
   `Phone` varchar(45) DEFAULT NULL,
@@ -60,4 +60,4 @@ CREATE TABLE `Stylist` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-20 22:11:44
+-- Dump completed on 2023-05-20 23:13:21
