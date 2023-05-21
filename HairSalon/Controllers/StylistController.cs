@@ -30,8 +30,16 @@ namespace HairSalon.Controllers
     public ActionResult Create(Stylist stylist)
     {
       _db.Stylist.Add(stylist);
-      _db.SaveChanges(); 
-      return View();
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    public ActionResult Details(int id)
+    {
+      Stylist currentStylist = _db.Stylist
+                                  .Include(stylist => stylist.Clients)
+                                  .FirstOrDefault(stylist => stylist.StylistId == id);
+      return View(currentStylist);
     }
 
 
