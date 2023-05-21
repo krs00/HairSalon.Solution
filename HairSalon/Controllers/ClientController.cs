@@ -15,10 +15,12 @@ namespace HairSalon.Controllers
       _db = db;
     }
 
-    public ActionResult Index()
+      public ActionResult Index()
     {
-      // List<Category> model = _db.Categories.ToList();
-      return View();
+      List<Client> model = _db.Client
+                            .Include(client => client.StylistId) 
+                            .ToList();
+      return View(model);
     }
 
 
