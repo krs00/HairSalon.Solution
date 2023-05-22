@@ -3,16 +3,33 @@
 }
 @model HairSalon.Models.Client
 <h2>🌺Add a new client!🌺</h2>
+<br>
 
 
 @using (Html.BeginForm())
 {
   @Html.LabelFor(model => model.Name)
   @Html.TextBoxFor(model => model.Name)
-
-  @Html.LabelFor(model => model.Name)
-  @Html.DropDownList("StylistId") 
-
+  <br>
+  <br>
+  @Html.LabelFor(model => model.Age)
+  @Html.TextBoxFor(model => model.Age)
+  <br>
+  <br>
+  @Html.LabelFor(model => model.Phone)
+  @Html.TextBoxFor(model => model.Phone)
+  <br>
+  <br>
+  @Html.LabelFor(model => model.Email)
+  @Html.TextBoxFor(model => model.Email)
+  <br>
+  <br>
+  @Html.LabelFor(model => model.StylistId)
+  @Html.DropDownList("StylistId", ViewBag.StylistId ) // Having trouble grabbing all stylist IDs from database using viewbag will come back to this later 
+  <br>
+  <br>
   <input type="submit" value="Add new client"/>
 }
-<p>@Html.ActionLink("Show all clients", "Index")</p>
+<br>
+<br>
+<h3>@Html.ActionLink("Show all clients", "Index")</h3>

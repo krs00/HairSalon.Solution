@@ -1,3 +1,52 @@
 @{
   Layout = "_Layout";
 }
+@model HairSalon.Models.Stylist
+
+<h2>🌺Add a Stylist!🌺</h2>
+
+@using (Html.BeginForm())
+{
+  <br>
+  <br>
+
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
+
+  <br>
+  <br>
+
+  @Html.LabelFor(model => model.Age)
+  @Html.TextBoxFor(model => model.Age)
+
+  <br>
+  <br>
+
+  @Html.LabelFor(model => model.Phone)
+  @Html.TextBoxFor(model => model.Phone)
+
+  <br>
+  <br>
+
+  @Html.LabelFor(model => model.Email)
+  @Html.TextBoxFor(model => model.Email)
+
+  <br>
+  <br>
+
+  @Html.LabelFor(model => model.Speciality)
+  @Html.TextBoxFor(model => model.Speciality)
+  
+  <br>
+  <br>
+
+
+  <input type="submit" value="Add new stylist!" />
+}
+
+<br>
+<br>
+
+<h3>@Html.ActionLink("View stylist", "Index")</h3>
+<br>
+<h3>@Html.ActionLink("Back to Homepage", "Index", "Home")</h3>

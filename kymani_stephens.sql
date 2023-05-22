@@ -28,7 +28,7 @@ CREATE TABLE `Client` (
   `Age` int DEFAULT NULL,
   `Phone` varchar(45) DEFAULT NULL,
   `Email` varchar(45) DEFAULT NULL,
-  `StylistId` int DEFAULT NULL,
+  `StylistId` int DEFAULT '0',
   PRIMARY KEY (`ClientId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -60,4 +60,4 @@ CREATE TABLE `Stylist` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-20 23:13:21
+-- Dump completed on 2023-05-21 17:45:37

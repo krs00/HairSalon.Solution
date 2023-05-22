@@ -39,4 +39,6 @@ else
 <br>
 <h3>@Html.ActionLink($"Delete {Model.Name} :(", "Delete", new { id = Model.StylistId })</h3>
 <br>
+<h3>@Html.ActionLink($"Add client for {Model.Name}", "Create", "Client")</h3>
+<br>
 <h3>@Html.ActionLink("Back to list", "Index")</h3>
