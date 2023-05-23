@@ -19,10 +19,10 @@
 -- Table structure for table `Client`
 --
 
-DROP TABLE IF EXISTS `Client`;
+DROP TABLE IF EXISTS `Clients`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Client` (
+CREATE TABLE `Clients` (
   `ClientId` int NOT NULL AUTO_INCREMENT,
   `Name` varchar(45) DEFAULT NULL,
   `Age` int DEFAULT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE `Client` (
 DROP TABLE IF EXISTS `Stylist`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Stylist` (
+CREATE TABLE `Stylists` (
   `StylistId` int NOT NULL AUTO_INCREMENT,
   `Name` varchar(45) DEFAULT NULL,
   `Age` int DEFAULT NULL,
