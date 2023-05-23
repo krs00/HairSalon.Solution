@@ -41,9 +41,9 @@ namespace HairSalon.Controllers
             }
             else
             {
-              _db.Clients.Add(client); 
-              _db.SaveChanges();
-              return RedirectToAction("Index"); 
+                _db.Clients.Add(client);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
             }
         }
 
