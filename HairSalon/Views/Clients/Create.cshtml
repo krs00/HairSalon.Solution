@@ -1,4 +1,4 @@
-@* @{
+@{
   Layout = "_Layout";
 }
 @model HairSalon.Models.Client
@@ -25,11 +25,12 @@
   <br>
   <br>
   @Html.LabelFor(model => model.StylistId)
-  @Html.DropDownList("StylistId", ViewBag.StylistId )
+  @Html.DropDownList("StylistId")
   <br>
   <br>
   <input type="submit" value="Add new client"/>
 }
+<h3>@Html.ValidationMessageFor(model => model.StylistId, ""})</h3>
 <br>
 <br>
-<h3>@Html.ActionLink("Show all clients", "Index")</h3> *@
+<h3>@Html.ActionLink("Show all clients", "Index")</h3>

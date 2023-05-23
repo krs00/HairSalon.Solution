@@ -3,17 +3,17 @@
 }
 
 @model HairSalon.Models.Stylist
-@using HairSalon.Models 
+@using HairSalon.Models
 
 <h2>🌺Stylist @Model.Name's Info Page🌺</h2>
 <br>
 <br>
 <h4>Age: @Model.Age</h4>
 <h4>Speciality: @Model.Speciality</h4>
-<h4>Phone: @Model.Phone</h4> 
+<h4>Phone: @Model.Phone</h4>
 <h4>Email: @Model.Email</h4>
 <br>
-<br> 
+<br>
 @if (@Model.Clients.Count == 0)
 {
   <h3>@Model.Name has no clients!</h3>
@@ -21,18 +21,18 @@
   <br>
   <br>
 }
-else 
+else
 {
-   <h3>Clients:</h3>
+  <h3>Clients:</h3>
   <ul>
-    @foreach (Client client in Model.Clients)
+  @foreach (Client client in Model.Clients)
     {
       <li>@Html.ActionLink($"{client.StylistId}", "Details", "Items", new { id = client.ClientId })</li>
     }
   </ul>
   <br>
   <br>
-  <br> 
+  <br>
 }
 
 <h3>@Html.ActionLink($"Edit {Model.Name}", "Edit", new { id = Model.StylistId })</h3>
