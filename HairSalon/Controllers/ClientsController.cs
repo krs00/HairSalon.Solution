@@ -18,16 +18,15 @@ namespace HairSalon.Controllers
 
     public ActionResult Index()
     {
-      // List<Client> model = _db.Client.ToList();  
-      List<Client> model = _db.Client
-                            .Include(client => client.StylistId)
+      List<Client> model = _db.Clients
+                            .Include(client => client.Stylist)
                             .ToList();
       return View(model);
     }
 
     public ActionResult Create()
     {
-      ViewBag.StylistId = new SelectList(_db.Stylist, "StylistId");
+      ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId");
       // ViewBag.StylistId = _db.Stylist.ToList();
       return View();
     }
@@ -35,53 +34,51 @@ namespace HairSalon.Controllers
     [HttpPost]
     public ActionResult Create(Client client)
     {
-      if (client.StylistId == 0)
+      if (client.StylistId == 0) 
       {
         return RedirectToAction("Create");
       }
-      _db.Client.Add(client);
+      _db.Clients.Add(client);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
-    public ActionResult Details(int id)
+    public ActionResult Details(int id) 
     {
-      Client currentClient = _db.Client
-                          .Include(client => client.StylistId)
+      Client thisClient = _db.Clients
+                          .Include(client => client.Stylist)
                           .FirstOrDefault(client => client.ClientId == id);
-      return View(currentClient);
+      return View(thisClient);
     }
 
     public ActionResult Edit(int id)
     {
-      Client currentClient = _db.Client.FirstOrDefault(client => client.ClientId == id);
-      ViewBag.StylistId = new SelectList(_db.Stylist, "StylistId", "Name");
-      return View(currentClient);
+      Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
+      ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name");
+      return View(thisClient);
     }
 
     [HttpPost]
     public ActionResult Edit(Client client)
     {
-      _db.Client.Update(client);
+      _db.Clients.Update(client);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
     public ActionResult Delete(int id)
     {
-      Client currentClient = _db.Client.FirstOrDefault(client => client.ClientId == id);
-      return View(currentClient);
+      Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
+      return View(thisClient);
     }
 
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      Client currentClient = _db.Client.FirstOrDefault(client => client.ClientId == id);
-      _db.Client.Remove(currentClient);
+      Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
+      _db.Clients.Remove(thisClient);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
-
   }
 }
