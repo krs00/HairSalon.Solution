@@ -7,6 +7,7 @@ namespace HairSalon.Models
     public int Age { get; set; }
     public string Phone { get; set; }
     public string Email { get; set; }
-    public Stylist Stylist { get; set; } // NAVIGATION PROPERTY
+    public int StylistId { get; set; } // FOREIGN KEY PROPERTY!!
+    public Stylist Stylist { get; set; } // NAVIGATION PROPERTY!!
   }
 }
