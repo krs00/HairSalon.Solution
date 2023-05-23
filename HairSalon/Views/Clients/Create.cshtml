@@ -1,4 +1,4 @@
-@{
+@* @{
   Layout = "_Layout";
 }
 @model HairSalon.Models.Client
@@ -25,11 +25,11 @@
   <br>
   <br>
   @Html.LabelFor(model => model.StylistId)
-  @Html.DropDownList("StylistId", ViewBag.StylistId ) // Having trouble grabbing all stylist IDs from database using viewbag will come back to this later 
+  @Html.DropDownList("StylistId", ViewBag.StylistId )
   <br>
   <br>
   <input type="submit" value="Add new client"/>
 }
 <br>
 <br>
-<h3>@Html.ActionLink("Show all clients", "Index")</h3>
+<h3>@Html.ActionLink("Show all clients", "Index")</h3> *@
